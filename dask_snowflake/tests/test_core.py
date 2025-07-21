@@ -71,7 +71,7 @@ def test_read_empty_result(table, connection_kwargs, client):
 
     result = read_snowflake(
         f"SELECT * FROM {table} where A > %(target)s",
-        execute_params={"target": df.A.max()},
+        execute_params={"target": df.A.max().item()},
         connection_kwargs=connection_kwargs,
         npartitions=2,
     )
