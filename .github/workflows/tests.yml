@@ -16,7 +16,7 @@ jobs:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
         exclude:
           # Python 3.11 build on macOS times out for some reason
-          # xref https://github.com/coiled/dask-snowflake/pull/56
+          # xref https://github.com/dask-contrib/dask-snowflake/pull/56
           - os: macos-latest
             python-version: "3.11"
     steps:

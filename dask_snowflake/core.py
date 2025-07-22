@@ -261,7 +261,7 @@ def read_snowflake(
 
     # Disable `log_imported_packages_in_telemetry` as a temporary workaround for
     # https://github.com/snowflakedb/snowflake-connector-python/issues/1648.
-    # Also xref https://github.com/coiled/dask-snowflake/issues/51.
+    # Also xref https://github.com/dask-contrib/dask-snowflake/issues/51.
     if connection_kwargs.get("log_imported_packages_in_telemetry"):
         raise ValueError(
             "Using `log_imported_packages_in_telemetry=True` when creating a "
@@ -279,7 +279,7 @@ def read_snowflake(
 
     batch_types = set(type(b) for b in batches)
     if len(batch_types) > 1 or next(iter(batch_types)) is not ArrowResultBatch:
-        # See https://github.com/coiled/dask-snowflake/issues/21
+        # See https://github.com/dask-contrib/dask-snowflake/issues/21
         raise RuntimeError(
             f"Currently only `ArrowResultBatch` are supported, but received batch types {batch_types}"
         )
